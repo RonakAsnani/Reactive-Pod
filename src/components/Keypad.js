@@ -6,7 +6,7 @@ const Keypad = (props) => {
             <button className="center-circle" onClick={props.selectButtonClicked}>
                 Select
             </button>
-            <button className="menu-button">
+            <button className="menu-button" onClick={props.menuClick}>
         <i className="fas fa-bars"></i>
             </button>
             <button className="left-button">

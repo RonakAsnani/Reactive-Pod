@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Screen from './components/Screen';
 import Keypad from './components/Keypad';
+import $ from 'jquery';
 import ZingTouch from 'zingtouch';
 
 class Ipod extends React.Component{
@@ -13,7 +14,8 @@ class Ipod extends React.Component{
             options: ['Games', 'Music', 'Settings', 'CoverFlow'],
             selected : 0,
             chengeInAngle: 0,
-        
+            showPage: -1,
+
         }
     }
     componentDidMount(){
@@ -34,7 +36,8 @@ class Ipod extends React.Component{
                     
                     this.setState({
                        
-                        selected: this.temp_selected
+                        selected: this.temp_selected,
+                        showPage: this.temp_selected
                     })
                     this.temp_change_in_angle = 0;
                 }else if(this.temp_change_in_angle < -60){
@@ -46,7 +49,8 @@ class Ipod extends React.Component{
                     this.temp_change_in_angle = 0;
                     this.setState({
                         
-                        selected: this.temp_selected
+                        selected: this.temp_selected,
+                        showPage: this.temp_selected
                     })
                     
                 }
@@ -55,15 +59,27 @@ class Ipod extends React.Component{
         });
 
     }
-    
+    menuButtonClicked = () => {
+        console.log('yesss');
+        let screen = document.getElementsByClassName('screen-menu')[0].classList;
+        if(screen.contains('width-50')){
+            $('.screen-menu').removeClass('width-50');
+        }else{
+            $('.screen-menu').addClass('width-50');
+        }
+    }
     render (){
         return (
             <div className="ipod">
             <Screen
                 optionsInMenu={this.state.options}
                 optionSelected={this.state.selected}
+                showPage = {this.state.showPage}
+                menuClick = {this.menuButtonClicked}
             />
-            <Keypad/>
+            <Keypad
+                menuClick = {this.menuButtonClicked}
+            />
             </div>
         );
      }
