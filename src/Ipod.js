@@ -2,43 +2,40 @@ import React from 'react';
 
 import Screen from './components/Screen';
 import Keypad from './components/Keypad';
+import ZingTouch from 'zingtouch';
 
 class Ipod extends React.Component{
+    constructor(){
+        super();
+        this.state = {
+            options: ['Games', 'Music', 'Settings', 'CoverFlow'],
+            selected : 0
+        }
+    }
+    componentDidMount(){
+        var target = document.getElementsByClassName('keypad')[0];
+        var region = new ZingTouch.Region(target);
 
+            region.bind(target, 'rotate', function(e) {
+                console.log(e);
+
+        });
+
+    }
     render (){
         return (
-            <div style={styles.backCover} className="ipod">
-                <div style={styles.main}>
-            <Screen/>
+            <div className="ipod">
+            <Screen
+                optionsInMenu={this.state.options}
+                optionSelected={this.state.selected}
+            />
             <Keypad/>
-            </div>
             </div>
         );
      }
 }
 
-const styles = {
-    backCover:{
-        width: '300px',
-        height: '500px',
-        background: '#cccccc',
-        margin:' 40px auto',
-        borderRadius: '30px',
-        boxShadow: '0px 2px 5px 0px rgba(0,0,0,0.4)'
-    },
-    main:{
-        width: '300px',
-        height: '500px',
-        background: '#f0f0f0',
-        margin: 'auto',
-        overflow: 'hidden',
-        borderRadius: '30px',
-        position: 'relative',
-        top:"-8px",
-        left: '8px'
-    }
 
-}
 
 
 export default Ipod;
