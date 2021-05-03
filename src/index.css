@@ -38,7 +38,7 @@ code {
 .keypad {
   width: 260px;
   height: 260px;
-  border: 1px solid grey;
+  border: 1px solid rgb(43, 41, 41);
   border-radius: 50%;
   margin: 10px auto 0px auto;
   position: relative;
@@ -52,7 +52,7 @@ code {
   width: 50%;
   height: 50%;
   border-radius: inherit;
-  background-color: grey;
+  background-color: rgb(43, 41, 41);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +74,7 @@ code {
   outline: none;
   border: none;
   background-color: transparent;
-  color: grey;
+  color: rgb(43, 41, 41);
 }
 .left-button {
   position: absolute;
@@ -89,7 +89,7 @@ code {
   outline: none;
   border: none;
   background-color: transparent;
-  color: grey;
+  color: rgb(43, 41, 41);
 }
 
 .right-button {
@@ -105,7 +105,7 @@ code {
   outline: none;
   border: none;
   background-color: transparent;
-  color: grey;
+  color: rgb(43, 41, 41);
 }
 .play-pause {
   position: absolute;
@@ -120,7 +120,7 @@ code {
   outline: none;
   border: none;
   background-color: transparent;
-  color: grey;
+  color: rgb(43, 41, 41);
 }
 
 /*/ //SCREEN////*/
@@ -247,4 +247,92 @@ code {
 .screen-coverflow > div > svg {
   -webkit-box-reflect: below 0px -webkit-gradient(linear, right top, right
         bottom, from(transparent), to(rgba(255, 255, 255, 0.4)));
+}
+
+.artists-screen {
+  background-color: white;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+/* ALBUMS SCREEN */
+.albums-screen {
+  background-color: white;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.artists-screen > h1 {
+  margin: 0px;
+}
+.artists-screen > div {
+  font-size: 180px;
+  color: rgb(174, 0, 255);
+}
+.artists-screen > div > svg {
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, right top, right
+        bottom, from(transparent), to(rgba(255, 255, 255, 0.4)));
+}
+.albums-screen > h1 {
+  margin: 0px;
+}
+.albums-screen > div {
+  font-size: 180px;
+  color: rgb(174, 0, 255);
+}
+.albums-screen > div > svg {
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, right top, right
+        bottom, from(transparent), to(rgba(255, 255, 255, 0.4)));
+}
+
+.all-songs {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: white;
+}
+.all-songs-heading {
+  text-align: center;
+  padding-bottom: 10px;
+  background-color: #6610f2;
+  margin: auto;
+  display: block;
+  height: 10%;
+  color: white;
+}
+.all-songs-list {
+  background-color: #343a40;
+  height: 86%;
+}
+.song-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  width: 1005;
+  height: 14%;
+  color: white;
+}
+
+.rotate {
+  position: absolute;
+  right: 10%;
+  top: 60%;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  outline: none;
+  border: none;
+}
+.rotate-clockwise {
+  transform: rotateZ(90deg);
+}
+.rotate-anti-clockwise {
+  transform: rotateZ(-90deg);
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import MenuItems from './MenuItems';
+import Menu from './Menu';
 import $ from 'jquery';
 
 
@@ -11,9 +12,9 @@ class PlayMusic extends React.Component{
         const {musicOptions} = this.props;
         return(
             <div className="screen-music">
-                <MenuItems optionsInMenu={musicOptions}
+                {/* <Menu optionsInMenu={musicOptions}
                     optionSelected={this.props.optionSelected}
-                />
+                /> */}
             </div>
         )
     }

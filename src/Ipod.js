@@ -16,6 +16,7 @@ class Ipod extends React.Component{
             chengeInAngle: 0,
             showPage: -1,
             musicOptions: ['All Songs','Artists','Albums'],
+            generalOptions: ['Games', 'Music', 'Settings', 'CoverFlow'],
             currentMusic:0,
             songIndex: -1,
             currentlyPlayScreen: false
@@ -72,7 +73,43 @@ class Ipod extends React.Component{
         }
     }
     selectButtonClicked = () => {
+        if(this.state.selected ===1 && this.state.options.length === 4){
+            this.setState({
+                options:this.state.musicOptions,
+                selected: 0,
+                songIndex: -1,
+            })
+            this.temp_selected = 0;
+            return;
+        }
+        if(!document.getElementsByClassName('screen-menu')[0].classList.contains('width-50')){
+            if(this.state.options.length === 3){
+                if(this.state.showPage === 0){
+
+                }
+            }
+        }
+        this.setState({
+            showPage: this.state.selected,
+            song_index: -1,//we dont want to play any song
+            selected: 0,
+        });
+        this.temp_selected = 0;
         this.menuButtonClicked();
+    }
+    backButtonClicked =() => {
+       if(this.state.options.length === 3 && document.getElementsByClassName('screen-menu')[0].classList.contains('width-50')){
+           this.setState({
+               options: this.state.generalOptions
+           })
+       } 
+    }
+    rotatePod=()=>
+    {
+        /* screen rotation feature */
+        $('.ipod').toggleClass('rotate-anti-clockwise');
+        $('.keypad').toggleClass('rotate-clockwise');
+        $('.screen-container').toggleClass('rotate-clockwise');
     }
     render (){
         return (
@@ -81,7 +118,6 @@ class Ipod extends React.Component{
                 optionsInMenu={this.state.options}
                 optionSelected={this.state.selected}
                 showPage = {this.state.showPage}
-                musicOptions = {this.state.musicOptions}
                 songIndex = {this.state.songIndex}
                 currentMusic = {this.state.currentMusic}
                 currentlyPlayScreen = {this.state.currentlyPlayScreen}
@@ -89,7 +125,11 @@ class Ipod extends React.Component{
             <Keypad
                 menuClick = {this.menuButtonClicked}
                 selectClick = {this.selectButtonClicked}
+                backButtonClicked = {this.backButtonClicked}
             />
+            <button className="rotate" onClick={this.rotatePod}>
+                    <i className="fas fa-undo"></i>
+                </button>
             </div>
         );
      }

@@ -25,15 +25,14 @@ class Screen extends React.Component {
             />
 
             {showPage === 0 && optionsInMenu.length ===4 ? <Games /> : '' }
-            {showPage === 1  ? <PlayMusic musicOptions={this.props.musicOptions} optionSelected={this.props.optionSelected}/> : ''}
+            {/* {showPage === 1  ? <PlayMusic musicOptions={this.props.musicOptions} optionSelected={this.props.optionSelected}/> : ''} */}
             {showPage === 2 && optionsInMenu.length ===4 ? <Settings/> : ''}
             {showPage === 3 && optionsInMenu.length ===4 ? <CoverFlow/> : '' }
 
             {showPage === 0 && optionsInMenu.length ===3 ? <AllSongs
-                musicOptions = {this.state.musicOptions}
-                songIndex = {this.state.songIndex}
-                currentMusic = {this.state.currentMusic}
-                currentlyPlayScreen = {this.state.currentlyPlayScreen}
+                songIndex = {this.props.songIndex}
+                currentMusic = {this.props.currentMusic}
+                currentlyPlayScreen = {this.props.currentlyPlayScreen}
             /> : ''}
             {showPage === 1 && optionsInMenu.length ===3 ? <Artists/> : ''}
             {showPage === 2 && optionsInMenu.length ===3 ? <Albums/> : '' }
