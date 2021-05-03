@@ -1,14 +1,19 @@
 import React from 'react';
+import MenuItems from './MenuItems';
+import $ from 'jquery';
 
 
 class PlayMusic extends React.Component{
+    // componentDidMount(){
+    //     $('.screen-menu').addClass('width-50');
+    // }
     render(){
+        const {musicOptions} = this.props;
         return(
             <div className="screen-music">
-                <h1>Music</h1>
-                <div>
-                    <i className="fas fa-music"></i>
-                </div>
+                <MenuItems optionsInMenu={musicOptions}
+                    optionSelected={this.props.optionSelected}
+                />
             </div>
         )
     }

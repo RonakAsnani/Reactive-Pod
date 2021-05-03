@@ -184,9 +184,11 @@ code {
   background-color: rgba(255, 255, 255, 0.9);
   box-sizing: border-box;
   overflow: hidden;
+
+  text-align: center;
 }
 .screen-music {
-  background-color: #ffb500;
+  background: transparent;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
@@ -198,6 +200,7 @@ code {
   background-color: rgba(255, 255, 255, 0.9);
   box-sizing: border-box;
   overflow: hidden;
+  text-align: center;
 }
 .screen-coverflow {
   height: 100%;
@@ -205,6 +208,7 @@ code {
   background-color: rgba(255, 255, 255, 0.9);
   box-sizing: border-box;
   overflow: hidden;
+  text-align: center;
 }
 .screen-game > div {
   font-size: 180px;

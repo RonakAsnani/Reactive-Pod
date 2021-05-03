@@ -3,7 +3,7 @@ import React from 'react';
 const Keypad = (props) => {
     return (
         <div className="keypad">
-            <button className="center-circle" onClick={props.selectButtonClicked}>
+            <button className="center-circle" onClick={props.selectClick}>
                 Select
             </button>
             <button className="menu-button" onClick={props.menuClick}>

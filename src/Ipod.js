@@ -15,7 +15,10 @@ class Ipod extends React.Component{
             selected : 0,
             chengeInAngle: 0,
             showPage: -1,
-
+            musicOptions: ['All Songs','Artists','Albums'],
+            currentMusic:0,
+            songIndex: -1,
+            currentlyPlayScreen: false
         }
     }
     componentDidMount(){
@@ -60,13 +63,16 @@ class Ipod extends React.Component{
 
     }
     menuButtonClicked = () => {
-        console.log('yesss');
+        //console.log('yesss');
         let screen = document.getElementsByClassName('screen-menu')[0].classList;
         if(screen.contains('width-50')){
             $('.screen-menu').removeClass('width-50');
         }else{
             $('.screen-menu').addClass('width-50');
         }
+    }
+    selectButtonClicked = () => {
+        this.menuButtonClicked();
     }
     render (){
         return (
@@ -75,10 +81,14 @@ class Ipod extends React.Component{
                 optionsInMenu={this.state.options}
                 optionSelected={this.state.selected}
                 showPage = {this.state.showPage}
-                menuClick = {this.menuButtonClicked}
+                musicOptions = {this.state.musicOptions}
+                songIndex = {this.state.songIndex}
+                currentMusic = {this.state.currentMusic}
+                currentlyPlayScreen = {this.state.currentlyPlayScreen}
             />
             <Keypad
                 menuClick = {this.menuButtonClicked}
+                selectClick = {this.selectButtonClicked}
             />
             </div>
         );
